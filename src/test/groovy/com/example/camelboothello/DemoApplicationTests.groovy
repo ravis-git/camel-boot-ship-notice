@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner
 class DemoApplicationTests {
 
     @Value('${local.server.port}')
-    protected int serverPort;
+    protected int serverPort
 
 	@Test
 	void contextLoads() {

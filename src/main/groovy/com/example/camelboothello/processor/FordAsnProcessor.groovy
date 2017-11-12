@@ -7,9 +7,11 @@ import com.example.camelboothello.model.ShipNotice
  */
 class FordAsnProcessor extends DefaultShipNoticeProcessor {
 
-    def processShipNotice(ShipNotice shipNotice) {
+    // making this method static may give better overall result as the jvm does not have multiple instances.
+        // -- This may be a future concern when running multiple instances of the service
+    static def processShipNotice(ShipNotice shipNotice) {
 
         //perform the default processing. additional customer specific processing can be included here
-        super.processDefaultShipNotice(shipNotice)
+        processDefaultShipNotice(shipNotice)
     }
 }

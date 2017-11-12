@@ -3,6 +3,9 @@ package com.example.camelboothello.processor
 import com.example.camelboothello.model.ShipNotice
 import groovy.util.logging.Slf4j
 
+import java.time.Duration
+import java.time.Instant
+
 /**
  * Created by ravipalakodeti on 11/11/17.
  *
@@ -11,7 +14,10 @@ import groovy.util.logging.Slf4j
 @Slf4j
 class DefaultShipNoticeProcessor {
 
-    def processDefaultShipNotice(ShipNotice shipNotice) {
-        log.info("Processing ship notice for make: ${shipNotice.customer}, notice numner: ${shipNotice.asnNumber}")
+    static processDefaultShipNotice(ShipNotice shipNotice) {
+
+        log.info("make: ${shipNotice.customer}, ASN number: ${shipNotice.asnNumber}, msgTime: ${shipNotice.messageTime}" +
+                " Duration: ${Duration.between(Instant.parse(shipNotice.getMessageTime()), Instant.now()).toMillis()}")
+
     }
 }

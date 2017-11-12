@@ -9,10 +9,10 @@ import groovy.transform.builder.ExternalStrategy
 
 class ShipNotice {
 
-    def Integer asnNumber
-    def String customer
-    def String messageTime
-    def String processedTime
+    Integer asnNumber
+    String customer
+    String messageTime
+    String processedTime
 }
 
 @Builder(builderStrategy = ExternalStrategy, forClass = ShipNotice,

@@ -31,7 +31,7 @@ class ShipNoticeService {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path('health')
-    def serviceHealth() {
+    serviceHealth() {
         return jsonBuilder {
             code '200'
             status 'UP'
@@ -41,7 +41,7 @@ class ShipNoticeService {
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    def collectShipNotices(Collection<ShipNotice> shipNotices) {
+    collectShipNotices(Collection<ShipNotice> shipNotices) {
         producerTemplate.sendBody(shipNotices)
         return jsonBuilder {
             status 'DONE'
