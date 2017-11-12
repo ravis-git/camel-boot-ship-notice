@@ -7,6 +7,7 @@ import org.apache.camel.Produce
 import org.apache.camel.ProducerTemplate
 import org.springframework.stereotype.Component
 
+import javax.ws.rs.Consumes
 import javax.ws.rs.GET
 import javax.ws.rs.POST
 import javax.ws.rs.PUT
@@ -39,10 +40,9 @@ class ShipNoticeService {
 
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
-    @Path('')
-    def collectShipNotices(Collection<ShipNotice> shipNoticeCollection) {
-        log.info(' == collect and send ship notices ==')
-        producerTemplate.sendBody(shipNoticeCollection)
+    @Consumes(MediaType.APPLICATION_JSON)
+    def collectShipNotices(Collection<ShipNotice> shipNotices) {
+        producerTemplate.sendBody(shipNotices)
         return jsonBuilder {
             status 'DONE'
         }

@@ -11,8 +11,10 @@ class ShipNotice {
 
     def Integer asnNumber
     def String customer
+    def String messageTime
+    def String processedTime
 }
 
 @Builder(builderStrategy = ExternalStrategy, forClass = ShipNotice,
-            buildMethodName = 'create', includes = 'asnNumber, customer')
+            buildMethodName = 'create', includes = 'asnNumber, customer, messageTime')
 class ShipNoticeBuilder{}
