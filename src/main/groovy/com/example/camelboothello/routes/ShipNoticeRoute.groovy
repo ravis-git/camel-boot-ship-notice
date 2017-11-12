@@ -1,9 +1,5 @@
 package com.example.camelboothello.routes
 
-import com.example.camelboothello.processor.ShipNoticeLogProcessor
-import groovy.util.logging.Slf4j
-import org.apache.camel.Exchange
-import org.apache.camel.LoggingLevel
 import org.apache.camel.builder.RouteBuilder
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory

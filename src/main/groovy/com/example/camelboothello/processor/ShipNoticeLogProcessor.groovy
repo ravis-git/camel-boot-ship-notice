@@ -11,7 +11,7 @@ import org.apache.camel.Processor
 @Slf4j
 class ShipNoticeLogProcessor {
 
-    def logShipNoticesInBatch(Collection<ShipNotice> shipNoticesCollection) {
+    static logShipNoticesInBatch(Collection<ShipNotice> shipNoticesCollection) {
         shipNoticesCollection.each {
             log.info("Notice received for asnNumber: ${it.asnNumber} , customer: ${it.customer}, time: ${it.messageTime}")
         }

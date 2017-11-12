@@ -1,7 +1,6 @@
 package com.example.camelboothello.routes
 
 import com.example.camelboothello.processor.FordAsnProcessor
-import org.apache.camel.LoggingLevel
 import org.apache.camel.builder.RouteBuilder
 import org.springframework.stereotype.Component
 
