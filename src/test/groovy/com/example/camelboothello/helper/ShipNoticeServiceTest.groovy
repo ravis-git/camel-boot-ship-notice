@@ -38,8 +38,8 @@ class ShipNoticeServiceTest extends DemoApplicationTests{
 
     @Before
     def void setup() {
-//        RestAssured.port = serverPort
-        RestAssured.port = 8080
+        RestAssured.port = serverPort
+//        RestAssured.port = 8080
     }
 
     @Test
@@ -59,7 +59,7 @@ class ShipNoticeServiceTest extends DemoApplicationTests{
             .contentType(MediaType.APPLICATION_JSON)
             // request body is a collection of ship notices
             .body(
-                (1..1000000).collect {
+                (1..100).collect {
                     new ShipNoticeBuilder()
                             .asnNumber(it)
                             .customer(makes[random.nextInt(3)])
