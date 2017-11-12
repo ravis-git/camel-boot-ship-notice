@@ -15,7 +15,6 @@ class SingleNoticeProessingRoute extends RouteBuilder {
     @Override
     void configure() throws Exception {
         from('seda:singleAsnChannel')
-//            .bean(ShipNoticeLogProcessor.class, 'logShipNoticesInBatch')
             .choice()
                 .when()
                     .jsonpath('$.[?(@.customer == "FORD")]')

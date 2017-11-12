@@ -19,6 +19,8 @@ class ShipNoticeRoute extends RouteBuilder {
     @Override
     void configure() throws Exception {
         from('seda:newAsnChannel')
+            // the route is processed in streaming mode and does not wait for the entire batch to complete
+            .streamCaching()
             .split(body())
                 .to('seda:singleAsnChannel')
     }

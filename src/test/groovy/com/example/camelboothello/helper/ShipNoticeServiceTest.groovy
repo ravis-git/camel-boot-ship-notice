@@ -38,7 +38,8 @@ class ShipNoticeServiceTest extends DemoApplicationTests{
 
     @Before
     def void setup() {
-        RestAssured.port = serverPort
+//        RestAssured.port = serverPort
+        RestAssured.port = 8080
     }
 
     @Test
@@ -46,7 +47,6 @@ class ShipNoticeServiceTest extends DemoApplicationTests{
         get("${SHIP_NOTICE_BATCH}/health")
             .then()
             .statusCode(HttpStatus.SC_OK)
-
     }
 
 
@@ -59,7 +59,7 @@ class ShipNoticeServiceTest extends DemoApplicationTests{
             .contentType(MediaType.APPLICATION_JSON)
             // request body is a collection of ship notices
             .body(
-                (1..100).collect {
+                (1..1000000).collect {
                     new ShipNoticeBuilder()
                             .asnNumber(it)
                             .customer(makes[random.nextInt(3)])
@@ -73,5 +73,8 @@ class ShipNoticeServiceTest extends DemoApplicationTests{
                     .statusCode(HttpStatus.SC_OK)
                     .assertThat()
                         .body('status', equalTo('DONE'))
+
+        // sleep the thread for the test to complete. this is not needed when running outside the test container
+//        Thread.sleep(10000)
     }
 }
