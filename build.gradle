@@ -31,7 +31,10 @@ dependencies {
             'org.springframework.boot:spring-boot-starter-jersey',
             'org.springframework.boot:spring-boot-devtools',
             'org.codehaus.groovy:groovy-json:2.4.12',
-            "org.apache.camel:camel-spring-boot-starter:${camelVersion}"
+            "org.apache.camel:camel-spring-boot-starter:${camelVersion}",
+
+            // dependency to use jsonpath for camel content based router
+            "org.apache.camel:camel-jsonpath:${camelVersion}"
     )
 	compile('org.codehaus.groovy:groovy')
 	testCompile(
