@@ -74,7 +74,7 @@ class ShipNoticeServiceTest extends DemoApplicationTests{
                     .assertThat()
                         .body('status', equalTo('DONE'))
 
-        // sleep the thread for the test to complete. this is not needed when running outside the test container
-//        Thread.sleep(10000)
+        // sleep the thread for the test to complete. this is only needed when running in TDD mode
+        Thread.sleep(10000)
     }
 }
